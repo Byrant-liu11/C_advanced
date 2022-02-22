@@ -43,9 +43,46 @@
 //}
 
 //第九题：题目：输入一个整数数组，实现一个函数，来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+//void move_arr(int arr[],int sz)
+//{
+//	//从左边找一个偶数
+//	int left = 0;
+//	int right = sz-1;
+//	while (left<right)
+//	{
+//		//从左边找偶数
+//		while ((left<right) && arr[left] % 2 == 1)  //增加(left<right)这个条件是防止全为奇数
+//		{
+//			left++;
+//		}
+//		//从右边找奇数
+//		while ((left < right) && arr[right] % 2 == 0)  //增加(left<right)这个条件是防止全为偶数，防止越界访问
+//		{
+//			right--;
+//		}
+//		if (left < right)
+//		{
+//			int tmp = arr[left];
+//			arr[left] = arr[right];
+//			arr[right] = tmp;
+//		}
+//	}
+//}
+//void print(int arr[], int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
 //int main()
 //{
-//
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	move_arr(arr,sz);
+//	print(arr, sz);
 //	return 0;
 //}
 
@@ -58,10 +95,20 @@
 //	scanf("%d",&money);
 //	int total = money;   //喝的瓶数
 //	int empty = money;   //空瓶数
-//	while (empty >= 2)
+//	//方法一：
+//	/*while (empty >= 2)
 //	{
 //		total += empty / 2;
 //		empty = empty / 2 + empty % 2;
+//	}*/
+//	//方法2：
+//	if (money == 0)
+//	{
+//		total = 0;
+//	}
+//	else
+//	{
+//		total = money * 2 - 1;
 //	}
 //	printf("你可以喝%d瓶\n",total);
 //	return 0;
@@ -172,7 +219,7 @@
 //int main()
 //{
 //	int i = 0;
-//	for (i = 1; i <= 99999; i++)
+//	for (i = 0; i <= 100000; i++)
 //	{
 //		int tem = i;
 //		int count = 0;
@@ -201,10 +248,13 @@
 //{
 //	int i = 0;
 //	int j = 0;
+//	int line = 0;
+//	printf("请输入打印菱形上半部分的行数：");
+//	scanf("%d",&line);
 //	//上半部分
-//	for (i = 0; i < 7; i++)
+//	for (i = 0; i < line; i++)
 //	{
-//		for (j = 0; j < 6 - i; j++)
+//		for (j = 0; j < line - 1 - i; j++)
 //		{
 //			printf(" ");
 //		}
@@ -215,13 +265,13 @@
 //		printf("\n");
 //	}
 //    //下半部分
-//	for (i = 6; i > 0; i--)
+//	for (i = 0; i < line-1; i++)
 //	{
-//		for (j = 0; j < 7 - i; j++)
+//		for (j = 0; j <= i; j++)
 //		{
 //			printf(" ");
 //		}
-//		for (j = 0; j < 2 * i - 1; j++)
+//		for (j = 0; j < 2 * (line - 1 - i) - 1; j++)
 //		{
 //			printf("*");
 //		}
